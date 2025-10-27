@@ -1,0 +1,19 @@
+<section class="content">
+  <h2><%= title %></h2>
+  <% if (items && items.length > 0) { %>
+    <ul>
+      <% items.forEach(item => { %>
+        <li>
+          <strong><%= item.name %></strong> - $<%= item.price %>
+          <% if (item.inStock) { %>
+            <span class="in-stock">In Stock</span>
+          <% } else { %>
+            <span class="out-stock">Out of Stock</span>
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No items to display.</p>
+  <% } %>
+</section>

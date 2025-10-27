@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "name": "Laptop", "price": 999, "inStock": true },
+    { "name": "Mouse", "price": 49, "inStock": false },
+    { "name": "Keyboard", "price": 79, "inStock": true }
+  ]
+}

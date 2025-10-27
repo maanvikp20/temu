@@ -1,0 +1,21 @@
+{
+  "name": "ejs-node-layout-starter",
+  "version": "1.0.0",
+  "description": "A starter Node.js + Express project using EJS with express-ejs-layouts, partials, and JSON data rendering.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.0.1",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
