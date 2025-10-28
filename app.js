@@ -17,20 +17,27 @@ app.set("layout", "layout");
 
 app.use(express.static(path.join(__dirname, "public")));
 
-const dataPath = path.join(__dirname, "data", "sample.json");
+const dataPath = path.join(__dirname, "data", "products.json");
 const jsonData = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
 
 app.get("/", (req, res) => {
   res.render("index", {
-    title: "EJS Layout Starter",
+    title: "Temu Tech Store",
     items: jsonData.items,
   });
 });
 
-app.get("/about", (req, res) => {
-  res.render("index", {
-    title: "About This Project",
-    items: [],
+app.get("/bestsellers", (req, res) => {
+  res.render("bestsellers", {
+    title: "Best-Selling Items",
+    items: jsonData.items.filter(item => item.isBestSeller),
+  });
+});
+
+app.get("/fivestaritems", (req, res) => {
+  res.render("fivestaritems", {
+    title: "Five Star Items",
+    items: jsonData.items.filter(item => item.rating === 5),
   });
 });
 

@@ -1,8 +1,21 @@
 <header>
-  <h1>EJS + Express Starter</h1>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="#">Contact</a>
+  <div class="logo">
+    <input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Temu_logo_icon.svg/1200px-Temu_logo_icon.svg.png" alt="Temu Tech Store Logo" width="50" height="50" onClick="location.href='/'"/>
+  </div>
+
+  <nav class="nav-links">
+    <a href="/bestsellers">Best-Selling Items</a>
+    <a href="/fivestaritems">5-Star Rated</a>
+    <a href="/earlyblackfriday">Early Black Friday</a>
   </nav>
+
+  <form action="/search" method="get" class="search-form" role="search">
+    <input type="search" name="q" placeholder="Search products..." aria-label="Search items" />
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+
+  <div class="nav-icons">
+    <a href="/support">Support</a>
+    <a href="/cart">🛒</a>
+  </div>
 </header>
