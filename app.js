@@ -41,6 +41,13 @@ app.get("/fivestaritems", (req, res) => {
   });
 });
 
+app.get("/earlyblackfriday", (req, res) => {
+  res.render("earlyblackfriday", {
+    title: "Early Black Friday Deals",
+    items: jsonData.items.filter(item => item.price < 50 && item.inStock && item.blackFridayDeal === true),
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)

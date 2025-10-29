@@ -1,11 +1,7 @@
 <section class="content">
-  <img src="https://i.abcnewsfe.com/a/e6a72b42-f5e2-4b59-84b3-d33f6077b399/GMA_Temu_Banner_v02_GV_1694197612086_hpEmbed_80x11.jpg" style="width:100%; height:auto; margin-bottom:20px;" />
-
-  <div style="display:flex; justify-content:center; margin-bottom:20px;">
-    <img src="https://aimg.kwcdn.com/material-put/2066d90972/ba9fd9a0-9bdf-4ac7-86cb-7362d05a3215.png?imageView2/2/w/1300/q/80/format/webp"
-         alt="logo"
-         style="width:30%; height:auto; display:block;" />
+  <div class="early-black-friday-header">
   </div>
+  <img src="/public/media/fiveStar.jpg">
 
   <% 
     // Shuffle and limit to 20
@@ -15,34 +11,7 @@
   <% if (shuffled && shuffled.length > 0) { %>
     <div class="product-row">
       <% shuffled.forEach(function(item) { %>
-        <div class="product-card">
-          <div class="product-thumb">
-            <img src="<%= item.img %>" alt="<%= item.name %>" />
-          </div>
-          <div class="product-info">
-            <h3 class="product-title"><%= item.name %></h3>
-            <div class="price-row">
-              <div class="price-current">$<%= item.price %></div>
-              <% if (item.oldPrice) { %>
-                <div class="price-old">$<%= item.oldPrice %></div>
-              <% } %>
-            </div>
-            <div class="stock">
-              <% if (item.inStock) { %>
-                <span class="in-stock">In Stock</span>
-              <% } else { %>
-                <span class="out-stock">Out of Stock</span>
-              <% } %>
-            </div>
-          </div>
-          <button class="cart-btn" aria-label="Add <%= item.name %> to cart">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M6 6h15l-1.5 9h-12L6 6z" stroke="#333" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
-              <circle cx="10" cy="20" r="1" fill="#333"></circle>
-              <circle cx="18" cy="20" r="1" fill="#333"></circle>
-            </svg>
-          </button>
-        </div>
+        <%- include('partials/card', { item: item }) %>
       <% }) %>
     </div>
   <% } else { %>
