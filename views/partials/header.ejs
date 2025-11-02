@@ -10,12 +10,19 @@
   </nav>
 
   <form action="/search" method="get" class="search-form" role="search">
-    <input type="search" name="q" placeholder="Search products..." aria-label="Search items" />
+    <input type="search" name="query" placeholder="Search products..." aria-label="Search items" />
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
 
   <div class="nav-icons">
     <a href="/support">Support</a>
-    <a href="/cart"><i class="fa fa-shopping-cart"></i></a>
+    <a href="/cart" class="cart-link">
+      <i class="fa fa-shopping-cart"></i>
+      <% if (cartCount > 0) { %>
+        <span class="cart-count" data-cart-count><%= cartCount %></span>
+      <% } else { %>
+        <span class="cart-count" data-cart-count style="display: none;">0</span>
+      <% } %>
+    </a>
   </div>
 </header>

@@ -1,0 +1,61 @@
+<div class="support-container">
+  <div class="page-header">
+    <h1><i class="fas fa-shopping-cart"></i> Shopping Cart</h1>
+    <p>Review your items before checkout</p>
+  </div>
+
+  <% if (cartItems.length > 0) { %>
+    <div class="cart-container">
+      <div class="cart-items-section">
+        <% cartItems.forEach(item => { %>
+          <div class="cart-item" data-product-id="<%= item.id %>">
+            <div class="cart-item-image">
+              <img src="<%= item.img %>" alt="<%= item.name %>">
+            </div>
+            <div class="cart-item-details">
+              <h3 class="cart-item-title"><%= item.name %></h3>
+              <p class="cart-item-price">$<%= item.price %></p>
+            </div>
+            <div class="cart-item-quantity">
+              <button class="qty-btn decrease-qty" data-product-id="<%= item.id %>">-</button>
+              <input type="number" class="qty-input" value="<%= item.quantity %>" min="1" data-product-id="<%= item.id %>" readonly>
+              <button class="qty-btn increase-qty" data-product-id="<%= item.id %>">+</button>
+            </div>
+            <div class="cart-item-total">
+              <p class="item-total">$<%= (item.price * item.quantity).toFixed(2) %></p>
+            </div>
+            <button class="remove-item-btn" data-product-id="<%= item.id %>" aria-label="Remove <%= item.name %>">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        <% }); %>
+      </div>
+
+      <div class="cart-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-row">
+          <span>Subtotal (<%= cartItems.length %> item<%= cartItems.length !== 1 ? 's' : '' %>)</span>
+          <span>$<%= total %></span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span class="free-shipping"><i class="fas fa-shipping-fast"></i> FREE</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <span class="total-amount">$<%= total %></span>
+        </div>
+        <button class="checkout-btn"><i class="fas fa-credit-card"></i> Proceed to Checkout</button>
+        <button class="clear-cart-btn"><i class="fas fa-trash"></i> Clear Cart</button>
+      </div>
+    </div>
+  <% } else { %>
+    <div class="empty-cart-section">
+      <i class="fas fa-shopping-cart empty-cart-icon"></i>
+      <h2>Your Cart is Empty</h2>
+      <p>Add some products to your cart to get started!</p>
+      <a href="/" class="continue-shopping-btn"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+    </div>
+  <% } %>
+</div>
